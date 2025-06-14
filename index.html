@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nayjjo.com এর Swift Air হাই-স্পিড ফ্যান - প্রিমিয়াম কোয়ালিটি</title>
+	<script src="https://cdn.tailwindcss.com"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.9/babel.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700;900&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
+	<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet" /><meta name="theme-color" content="#0f172a"><script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyCyf9mTmbnXTB4hdsQpePNY-Hdgt347GPY",
+        authDomain: "krishighar.firebaseapp.com",
+        databaseURL: "https://krishighar-default-rtdb.firebaseio.com",
+        projectId: "krishighar",
+        storageBucket: "krishighar.firebasestorage.app",
+        messagingSenderId: "587381600768",
+        appId: "1:587381600768:web:157abdd3b20a3e4f23dee5"
+      };
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      window.firebaseUtils = { database, ordersRef: ref(database, 'nayjjo_fan_orders_hero_cta'), push, serverTimestamp };
+    </script>
+</head>
+<body class="bg-slate-950 font-['Hind_Siliguri'] text-gray-300">
+<div id="root"></div>
+<script type="text/babel">
+        const IMAGE_SOURCES = {
+            transparentPattern: "https://www.transparenttextures.com/patterns/diagmonds.png",
+            heroFan: "https://i.imgur.com/DcUj2VB.png",
+            topBannerImage: "https://i.imgur.com/B16nk2w.jpeg",
+            mainGallery: [
+                "https://i.imgur.com/AzJvuVt.png",
+                "https://i.imgur.com/XOjjl2t.png",
+                "https://i.imgur.com/cGoFKmL.png"
+            ],
+            // miniGallery was here, removed as per request
+        };
+
+        const TEXTS_BN = {
+            pageTitle: "Nayjjo.com এর Swift Air হাই-স্পিড ফ্যান - প্রিমিয়াম কোয়ালিটি",
+            heroFanAlt: "সুইফট এয়ার হাই-স্পিড ফ্যান",
+            heroTitle: "গরমকে বিদায় জানান, Swift Air ফ্যানের সাথে!",
+            topBannerSubtitle: `সুইফট এয়ার হাই স্পীড ফ্যান - প্রিমিয়াম কোয়ালিটি, বিদ্যুৎ সাশ্রয়ী, ${(12).toLocaleString('bn-BD')} মাসের ওয়ারেন্টি সহ!`, // Updated this line
+            heroDescriptionParts: [
+                "আমরা দিচ্ছি প্রতিটি Swift Air হাই-স্পিড ফ্যান মাত্র ",
+                <strong key="price" className="text-sky-400">১০৫০ টাকায়</strong>,
+                "। এটি প্রিমিয়াম কোয়ালিটির, বিদ্যুৎ সাশ্রয়ী এবং সাথে থাকছে ১২ মাসের ওয়ারেন্টি। ", <br key="br" />,
+                "সম্পূর্ণ অগ্রিম পেমেন্টে ডেলিভারি চার্জ ", <strong key="free_delivery" className="text-green-400">ফ্রি (০৳)!</strong>,
+                " ক্যাশ অন ডেলিভারিতে সারাদেশে ডেলিভারি চার্জ মাত্র ", <strong key="cod_delivery" className="text-sky-400">১০০ টাকা</strong>, " (এবং ক্যাশ অন ডেলিভারির ক্ষেত্রে ১০০ টাকা অগ্রিম প্রযোজ্য)।"
+            ],
+            heroOrderButton: "এখনই অর্ডার করুন",
+            galleryTitle: "Swift Air হাই-স্পিড ফ্যানের আরও কিছু ছবি",
+            galleryImageAltPrefix: "Swift Air ফ্যান",
+            galleryOrderButton: "অর্ডার করুন",
+            aiAssistant: {
+                title: "AI ফ্যান সংখ্যা নির্ণয়ক",
+                subtitle: "আপনার বাসা বা অফিসের জন্য কয়টি ফ্যান প্রয়োজন বুঝতে পারছেন না? কয়েকটি সহজ প্রশ্নের উত্তর দিন, আমাদের AI জানিয়ে দেবে আপনার জন্য সেরা সংখ্যা!",
+                analyzing: "বিশ্লেষণ চলছে...",
+                recommendationTitle: "AI সুপারিশ:",
+                recommendationPrefix: "আপনার জন্য সেরা হবে: ",
+                recommendationSuffix: " টি Swift Air ফ্যান। এই সংখ্যা আপনার প্রয়োজন পূরণ করবে!",
+                orderThisPackageButton: "এই প্যাকেজটি অর্ডার করুন",
+                fallbackOrderButton: "সরাসরি অর্ডার করুন",
+                questions: [
+                    { q_short: "রুমের সংখ্যা?", icon: 'fas fa-door-open', question: 'কতগুলো রুমে ফ্যান লাগাতে চান?', options: [{ label: '১ টি রুমে', value: '1_room' }, { label: '২ টি রুমে', value: '2_rooms' }, { label: '৩ বা তার বেশি রুমে', value: '3_plus_rooms' }], key: 'roomCount' },
+                    { q_short: "প্রধান ব্যবহার?", icon: 'fas fa-home', question: 'ফ্যানগুলো মূলত কোথায় ব্যবহার হবে?', options: [{ label: 'বাসার জন্য', value: 'home' }, { label: 'অফিস/দোকানের জন্য', value: 'office' }, { label: 'উভয়ই', value: 'both' }], key: 'usageType' },
+                    { q_short: "গরমের তীব্রতা?", icon: 'fas fa-thermometer-three-quarters', question: 'আপনার এলাকায় গরমের তীব্রতা কেমন?', options: [{ label: 'মাঝারি', value: 'moderate' }, { label: 'বেশি', value: 'high' }, { label: 'খুব বেশি', value: 'very_high' }], key: 'heatIntensity' }
+                ],
+                quantityMapping: { "1":"১টি", "2":"২টি", "3":"৩টি", "4":"৪টি", "5":"৫টি" },
+            },
+            whyChooseUs: {
+                title: "কেন Nayjjo.com থেকে Swift Air ফ্যান কিনবেন?",
+                points: [
+                    { icon: 'fas fa-medal', title: 'প্রিমিয়াম কোয়ালিটি', desc: 'সর্বোচ্চ মানের উপকরণে তৈরি, দীর্ঘস্থায়ী ও নির্ভরযোগ্য Swift Air ফ্যান।' },
+                    { icon: 'fas fa-bolt', title: 'বিদ্যুৎ সাশ্রয়ী', desc: 'অত্যাধুনিক প্রযুক্তির ব্যবহারে আপনার বিদ্যুৎ বিল কমবে উল্লেখযোগ্যভাবে।' },
+                    { icon: 'fas fa-shield-alt', title: '১২ মাসের ওয়ারেন্টি', desc: 'নিশ্চিন্তে ব্যবহার করুন, পাচ্ছেন পুরো ১ বছরের অফিসিয়াল ওয়ারেন্টি।' },
+                    { icon: 'fas fa-cogs', title: 'সেরা কোয়ালিটির মটর', desc: 'হাই-স্পিড ও দীর্ঘস্থায়ী সেরা কোয়ালিটির মটরের গ্যারান্টি, পাবেন শক্তিশালী বাতাস।' },
+                    { icon: 'fas fa-user-check', title: 'Nayjjo.com কোয়ালিটি টেস্ট', desc: 'Nayjjo.com এর প্রশিক্ষিত প্রতিনিধি দ্বারা প্রতিটি ফ্যান ডেলিভারির পূর্বে কোয়ালিটি পরীক্ষা করা হয়।' },
+                    { icon: 'fas fa-shipping-fast', title: 'দ্রুত ডেলিভারি ও পেমেন্ট', desc: 'সারা দেশে দ্রুততম সময়ে ডেলিভারি। অগ্রিম পেমেন্টে ডেলিভারি চার্জ ফ্রি (০৳)। ক্যাশ অন ডেলিভারিতে ১০০ টাকা অগ্রিম এবং ১০০ টাকা ডেলিভারি চার্জ প্রযোজ্য।' },
+                ],
+                orderButton: "অর্ডার করুন",
+            },
+            benefits: {
+                title: "Swift Air হাই-স্পিড ফ্যানের বিশেষত্ব",
+                items: [
+                    { icon: 'fas fa-wind', title: 'তীব্র ও শক্তিশালী বাতাস', desc: 'হাই-স্পিড মটরের কল্যাণে মুহুর্তে ঘর ঠান্ডা করে দেয়, দেয় স্বস্তির পরশ।' },
+                    { icon: 'fas fa-leaf', title: 'বিদ্যুৎ সাশ্রয়ী ডিজাইন', desc: 'আধুনিক প্রযুক্তি নিশ্চিত করে কম বিদ্যুৎ খরচে সেরা পারফর্মেন্স।' },
+                    { icon: 'fas fa-tools', title: 'টেকসই ও দীর্ঘস্থায়ী', desc: 'প্রিমিয়াম উপকরণে তৈরি হওয়ায় এই ফ্যান বছরের পর বছর চলবে।' },
+                    { icon: 'fas fa-calendar-check', title: '১২ মাসের ওয়ারেন্টি', desc: 'পণ্য কেনার পর পুরো এক বছরের জন্য নিশ্চিন্ত থাকুন ওয়ারেন্টির আওতায়।' },
+                    { icon: 'fas fa-thumbs-up', title: 'নির্ভরযোগ্য পারফর্মেন্স', desc: 'Nayjjo.com এর কোয়ালিটি চেকের মাধ্যমে প্রতিটি ফ্যানের গুণগত মান নিশ্চিত করা হয়।' },
+                    { icon: 'fas fa-rocket', title: 'দ্রুতগতির বাতাস', desc: 'এর হাই-স্পিড আপনাকে গরমের অস্বস্তি থেকে দ্রুত মুক্তি দেবে।' }
+                ],
+                orderButton: (quantity) => `এখনি কিনুন (${quantity})`,
+            },
+            orderForm: {
+                title: "Swift Air ফ্যান অর্ডার করুন",
+                nameLabel: "আপনার নাম",
+                phoneLabel: "ফোন নম্বর",
+                addressLabel: "সম্পূর্ণ ঠিকানা",
+                quantityLabel: "ফ্যানের সংখ্যা (টি)",
+                colorLabel: "ফ্যানের রঙ নির্বাচন করুন:",
+                colors: [
+                    { label: "হলুদ", value: "yellow" },
+                    { label: "আকাশি", value: "skyblue" },
+                    { label: "হালকা হলুদ", value: "lightyellow" }
+                ],
+                paymentMethodLabel: "পেমেন্ট পদ্ধতি:",
+                codLabel: "ক্যাশ অন ডেলিভারি (ডেলিভারি ফি ১০০৳)",
+                advancePaymentLabel: "অগ্রিম পেমেন্ট (ডেলিভারি ফি ০৳)",
+                fanPriceLabel: "প্রতিটি ফ্যানের দাম:",
+                deliveryFeeLabel: "ডেলিভারি ফি:",
+                totalPayableLabel: "মোট পরিশোধযোগ্য:",
+                codAdvanceNote: "ক্যাশ অন ডেলিভারির ক্ষেত্রে ১০০ টাকা অগ্রিম প্রযোজ্য।",
+                advancePaymentNote: "অগ্রিম পেমেন্টের জন্য আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করে বিস্তারিত জানাবে।",
+                cancelButton: "বাতিল",
+                confirmButton: "অর্ডার কনফার্ম করুন",
+                processingButton: "প্রসেসিং...",
+                successTitle: "অর্ডার সফলভাবে পাঠানো হয়েছে!",
+                successMessage: "Nayjjo.com এর প্রতিনিধি শীঘ্রই আপনার সাথে যোগাযোগ করে আপনার Swift Air ফ্যানটি পৌঁছে দেবে এবং পেমেন্ট সংক্রান্ত বিস্তারিত জানাবে। ধন্যবাদ!",
+                successCloseButton: "বন্ধ করুন",
+                minQuantityError: "দয়া করে কমপক্ষে ১টি ফ্যানের সংখ্যা উল্লেখ করুন।",
+                firebaseError: "দুঃখিত, অর্ডারটি সম্পন্ন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।",
+                deliveryFeeFixed: "100",
+            },
+            footer: {
+                brandName: "Nayjjo.com - Swift Air Fan",
+                slogan: "Swift Air - আপনার বিশ্বস্ত হাই-স্পিড ফ্যান, Nayjjo.com থেকে",
+                copyright: (year) => `© ${year} Nayjjo.com. সর্বস্বত্ব সংরক্ষিত।`,
+                developerInfoPrefix: "ডেভেলপার:",
+                developerInfoLinkText: "যোগাযোগ করুন",
+            },
+            mobileNav: {
+                whatsappLabel: "WhatsApp",
+                callLabel: "কল করুন",
+                whatsappMessage: "আমি Nayjjo.com থেকে Swift Air হাই-স্পিড ফ্যান সম্পর্কে জানতে চাই।",
+            },
+            currencySymbol: "৳",
+        };
+
+        function useIntersectionObserver(options, runOnce = true) {
+            const [entry, setEntry] = React.useState(null);
+            const [node, setNode] = React.useState(null);
+            const observer = React.useRef(null);
+            React.useEffect(() => {
+                if (observer.current) observer.current.disconnect();
+                observer.current = new window.IntersectionObserver(([entry]) => {
+                    if (entry.isIntersecting) {
+                        setEntry(entry);
+                        if (runOnce && observer.current) observer.current.unobserve(entry.target);
+                    }
+                }, options);
+                const { current: currentObserver } = observer;
+                if (node) currentObserver.observe(node);
+                return () => { if (currentObserver) currentObserver.disconnect(); };
+            }, [node, options, runOnce]);
+            return [setNode, entry];
+        }
+
+        const AnimatedSection = ({ children, className, threshold = 0.1, delay = "delay-0" }) => {
+            const [ref, entry] = useIntersectionObserver({ threshold: threshold }, true);
+            const isVisible = !!entry?.isIntersecting;
+            return <div ref={ref} className={`${className || ''} transition-all duration-700 ease-out ${delay} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{children}</div>;
+        };
+
+        function OrderForm({ isOpen, onClose, recommendedQuantity, texts }) {
+            const [name, setName] = React.useState('');
+            const [phone, setPhone] = React.useState('');
+            const [address, setAddress] = React.useState('');
+            const [quantity, setQuantity] = React.useState(1);
+            const [selectedColor, setSelectedColor] = React.useState(texts.colors[0]?.value || '');
+            const [paymentMethod, setPaymentMethod] = React.useState('cod');
+            const [isSubmitted, setIsSubmitted] = React.useState(false);
+            const [isLoading, setIsLoading] = React.useState(false);
+
+            const PRICE_PER_ITEM = 1050;
+            const DELIVERY_FEE_COD = parseInt(texts.deliveryFeeFixed) || 100;
+            const DELIVERY_FEE_ADVANCE = 0;
+
+            React.useEffect(() => {
+                if (isOpen) {
+                    let initialQty = 1;
+                    if (recommendedQuantity) {
+                        const qtyNum = parseInt(recommendedQuantity);
+                        if (!isNaN(qtyNum) && qtyNum > 0) {
+                            initialQty = qtyNum;
+                        }
+                    }
+                    setQuantity(initialQty);
+                    setSelectedColor(texts.colors[0]?.value || '');
+                    setPaymentMethod('cod');
+                }
+            }, [isOpen, recommendedQuantity, texts.colors]);
+
+            if (!isOpen) return null;
+
+            const handleQuantityChange = (e) => {
+                const value = e.target.value;
+                const numValue = parseInt(value);
+                setQuantity(value === "" ? "" : (isNaN(numValue) ? "" : numValue));
+            };
+
+            const currentQuantityNum = parseInt(quantity) || 0;
+            const subTotal = currentQuantityNum * PRICE_PER_ITEM;
+
+            let currentDeliveryFee = 0;
+            if (currentQuantityNum > 0) {
+                currentDeliveryFee = paymentMethod === 'advance' ? DELIVERY_FEE_ADVANCE : DELIVERY_FEE_COD;
+            }
+
+            const totalAmount = subTotal + currentDeliveryFee;
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                const finalQuantity = parseInt(quantity);
+                if (isNaN(finalQuantity) || finalQuantity < 1) {
+                    alert(texts.minQuantityError.replace("১", "1"));
+                    setQuantity(1);
+                    return;
+                }
+                if (!selectedColor) {
+                    alert("দয়া করে ফ্যানের রঙ নির্বাচন করুন।");
+                    return;
+                }
+                setIsLoading(true);
+                const orderData = {
+                    name, phone, address, quantity: finalQuantity, selectedColor, paymentMethod,
+                    pricePerItem: PRICE_PER_ITEM, subTotal,
+                    deliveryFee: currentDeliveryFee,
+                    totalAmount,
+                    paymentNote: paymentMethod === 'cod' ? texts.codAdvanceNote.replace("১০০", "100") : texts.advancePaymentNote,
+                    status: "Pending", orderTimestamp: window.firebaseUtils.serverTimestamp(),
+                    product_id: 'SWIFT_AIR_HIGH_SPEED_FAN', productName: 'Swift Air High Speed Fan', source: 'Nayjjo.com Website'
+                };
+                try {
+                    await window.firebaseUtils.push(window.firebaseUtils.ordersRef, orderData);
+                    setIsSubmitted(true);
+                } catch (error) {
+                    console.error("Firebase এ অর্ডার পাঠাতে সমস্যা হয়েছে:", error);
+                    alert(texts.firebaseError);
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            return (
+                <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-3 sm:p-4 transition-opacity duration-300 ease-in-out" onClick={onClose}>
+                    <div className="bg-slate-800 p-4 pt-5 sm:p-6 rounded-xl shadow-2xl w-full max-w-md transform transition-all duration-500 scale-100 border border-sky-700" onClick={(e) => e.stopPropagation()}>
+                        <button onClick={onClose} className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-400 hover:text-sky-400 text-xl sm:text-2xl z-10"><i className="fas fa-times-circle"></i></button>
+                        {!isSubmitted ? (
+                            <>
+                                <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center text-sky-400">{texts.title}</h2>
+                                <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                                    {['name', 'phone', 'address'].map(field => (
+                                        <div className="relative" key={field}>
+                                            <input type={field === 'phone' ? 'tel' : 'text'} id={field} placeholder=" " value={eval(field)} onChange={(e) => eval(`set${field.charAt(0).toUpperCase() + field.slice(1)}`)(e.target.value)}
+                                                   className="peer w-full p-3 pt-5 border border-slate-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none bg-slate-700 text-gray-100 text-sm sm:text-base placeholder-transparent transition-colors focus:border-sky-500" required />
+                                            <label htmlFor={field} className="absolute left-3 top-1 text-gray-400 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3.5 peer-focus:top-1 peer-focus:text-xs peer-focus:text-sky-400">{texts[`${field}Label`]}</label>
+                                        </div>
+                                    ))}
+                                    <div className="relative">
+                                        <input type="number" id="quantity" placeholder=" " value={quantity} onChange={handleQuantityChange} min="1"
+                                               className="peer w-full p-3 pt-5 border border-slate-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none bg-slate-700 text-gray-100 text-sm sm:text-base placeholder-transparent transition-colors focus:border-sky-500" required />
+                                        <label htmlFor="quantity" className="absolute left-3 top-1 text-gray-400 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3.5 peer-focus:top-1 peer-focus:text-xs peer-focus:text-sky-400">{texts.quantityLabel}</label>
+                                    </div>
+
+                                    <div className="relative">
+                                        <label htmlFor="color" className="block text-sm sm:text-base font-medium text-gray-200 mb-1">{texts.colorLabel}</label>
+                                        <select
+                                            id="color"
+                                            name="color"
+                                            value={selectedColor}
+                                            onChange={(e) => setSelectedColor(e.target.value)}
+                                            className="w-full p-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none bg-slate-700 text-gray-100 text-sm sm:text-base transition-colors focus:border-sky-500 appearance-none"
+                                        >
+                                            {texts.colors.map(color => (
+                                                <option key={color.value} value={color.value} className="bg-slate-700 text-gray-200">{color.label}</option>
+                                            ))}
+                                        </select>
+                                        <div className="pointer-events-none absolute inset-y-0 right-0 top-6 sm:top-7 flex items-center px-2 text-gray-400">
+                                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-sm sm:text-base font-medium text-gray-200 mb-1.5">{texts.paymentMethodLabel}</label>
+                                        <div className="flex flex-col space-y-1.5 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
+                                            <label htmlFor="cod" className="flex items-center cursor-pointer p-1.5 rounded-md hover:bg-slate-700 transition-colors">
+                                                <input type="radio" id="cod" name="paymentMethod" value="cod" checked={paymentMethod === 'cod'} onChange={() => setPaymentMethod('cod')} className="form-radio h-4 w-4 text-sky-500 border-slate-500 focus:ring-offset-0 focus:ring-sky-500 bg-slate-700"/>
+                                                <span className="ml-2 text-sm sm:text-base text-gray-200">{texts.codLabel.replace("১০০",(100).toLocaleString('bn-BD'))}</span>
+                                            </label>
+                                            <label htmlFor="advance" className="flex items-center cursor-pointer p-1.5 rounded-md hover:bg-slate-700 transition-colors">
+                                                <input type="radio" id="advance" name="paymentMethod" value="advance" checked={paymentMethod === 'advance'} onChange={() => setPaymentMethod('advance')} className="form-radio h-4 w-4 text-sky-500 border-slate-500 focus:ring-offset-0 focus:ring-sky-500 bg-slate-700"/>
+                                                <span className="ml-2 text-sm sm:text-base text-gray-200">{texts.advancePaymentLabel.replace("০",(0).toLocaleString('bn-BD'))}</span>
+                                            </label>
+                                        </div>
+                                        {paymentMethod === 'cod' && <p className="text-xs sm:text-sm text-rose-400 mt-1.5">{texts.codAdvanceNote.replace("১০০",(100).toLocaleString('bn-BD'))}</p>}
+                                        {paymentMethod === 'advance' && <p className="text-xs sm:text-sm text-green-400 mt-1.5">{texts.advancePaymentNote}</p>}
+                                    </div>
+
+                                    <div className="pt-2 space-y-1.5 text-sm sm:text-base text-gray-300">
+                                        <p className="flex justify-between"><span>{texts.fanPriceLabel}</span> <span className="font-semibold text-gray-100">{PRICE_PER_ITEM.toLocaleString('bn-BD')} {TEXTS_BN.currencySymbol}</span></p>
+                                        <p className="flex justify-between">
+                                            <span>{texts.deliveryFeeLabel}</span>
+                                            <span className="font-semibold text-gray-100">
+                                                {`${currentDeliveryFee.toLocaleString('bn-BD')} ${TEXTS_BN.currencySymbol}`}
+                                            </span>
+                                        </p>
+                                        <hr className="my-1.5 border-slate-600"/>
+                                        <p className="flex justify-between text-base sm:text-lg"><strong>{texts.totalPayableLabel}</strong> <strong className="text-sky-400">{totalAmount.toLocaleString('bn-BD')} {TEXTS_BN.currencySymbol}</strong></p>
+                                    </div>
+
+                                    <div className="flex justify-between gap-3 pt-3">
+                                        <button type="button" onClick={onClose} className="bg-slate-600 text-gray-200 px-4 py-2.5 rounded-lg hover:bg-slate-500 transition duration-300 flex-1 text-sm sm:text-base font-semibold" disabled={isLoading}>{texts.cancelButton}</button>
+                                        <button type="submit" className="bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-4 py-2.5 rounded-lg hover:from-sky-600 hover:to-cyan-700 transition duration-300 flex-1 text-sm sm:text-base font-semibold shadow-md hover:shadow-lg disabled:opacity-70" disabled={isLoading}>
+                                            {isLoading ? <><i className="fas fa-spinner fa-spin mr-1.5"></i>{texts.processingButton}</> : texts.confirmButton}
+                                        </button>
+                                    </div>
+                                </form>
+                            </>
+                        ) : (
+                            <div className="text-center py-8 sm:py-10">
+                                <i className="fas fa-check-circle text-green-400 text-5xl sm:text-6xl mb-3"></i>
+                                <h3 className="text-xl sm:text-2xl font-semibold text-sky-400 mb-1.5">{texts.successTitle}</h3>
+                                <p className="text-gray-300 text-sm sm:text-base mb-5">{texts.successMessage}</p>
+                                <button onClick={() => { setIsSubmitted(false); setQuantity(1); setSelectedColor(texts.colors[0]?.value || ''); setPaymentMethod('cod'); onClose(); }} className="bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-6 py-2.5 rounded-lg hover:from-sky-600 hover:to-cyan-700 transition duration-300 font-semibold text-sm sm:text-base">{texts.successCloseButton}</button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        function AiFanAssistant({ setRecommendedQuantity, openForm, texts }) {
+            const [currentStep, setCurrentStep] = React.useState(0);
+            const [answers, setAnswers] = React.useState({ roomCount: '', usageType: '', heatIntensity: '' });
+            const [isCalculating, setIsCalculating] = React.useState(false);
+            const questions = texts.questions;
+            const quantityMapping = texts.quantityMapping;
+
+            const handleAnswer = (key, value) => {
+                setAnswers(prev => ({ ...prev, [key]: value }));
+                setIsCalculating(true);
+                setTimeout(() => { setCurrentStep(prev => prev + 1); setIsCalculating(false); }, 600);
+            };
+
+            const calculateRecommendation = () => {
+                let score = 0;
+                if (answers.roomCount === '1_room') score += 1; else if (answers.roomCount === '2_rooms') score += 2; else if (answers.roomCount === '3_plus_rooms') score += 3;
+                if (answers.usageType === 'office' && score < 3) score += 1; if (answers.usageType === 'both' && score < 4) score +=1;
+                if (answers.heatIntensity === 'very_high' && score < 5) score += 1; else if (answers.heatIntensity === 'high' && score < 4) score +=1;
+                let recQty = Math.max(1, Math.min(5, score)).toString();
+                setRecommendedQuantity(recQty);
+                return recQty;
+            };
+            const recommendation = currentStep >= questions.length ? calculateRecommendation() : null;
+
+            const toBengaliOptionLabel = (label) => {
+                return label.replace(/\d+/g, n => parseInt(n).toLocaleString('bn-BD'));
+            };
+
+            return (
+                <section className="py-10 sm:py-12 bg-gradient-to-br from-slate-900 via-gray-900 to-neutral-900 rounded-2xl shadow-xl mx-2 sm:mx-auto max-w-xl relative z-10 border-2 border-sky-800/70 shadow-sky-900/40 my-8">
+                    <div className="container mx-auto px-4 sm:px-6">
+                        <div className="flex items-center justify-center mb-4 sm:mb-5"><i className="fas fa-microchip text-3xl sm:text-4xl text-sky-500 mr-3"></i><h2 className="text-xl sm:text-2xl font-bold text-center text-sky-400">{texts.title}</h2></div>
+                        <p className="text-center text-gray-400 mb-5 sm:mb-6 text-sm sm:text-base max-w-md mx-auto">{texts.subtitle}</p>
+                        <div className="relative min-h-[220px] sm:min-h-[240px] bg-slate-800/80 backdrop-blur-sm p-4 sm:p-5 rounded-xl shadow-inner border border-slate-700/90">
+                            <div className="flex justify-center mb-4 space-x-2">{questions.map((q, index) => (<div key={index} title={q.q_short} className={`w-2.5 h-2.5 rounded-full transition-all duration-500 cursor-help ${index < currentStep ? 'bg-sky-500' : index === currentStep ? 'bg-sky-500 scale-125 ring-2 ring-sky-600' : 'bg-slate-600'}`}></div>))}</div>
+                            {isCalculating && currentStep < questions.length && (<div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-800/80 backdrop-blur-sm z-10 rounded-xl"><i className="fas fa-sync-alt fa-spin text-3xl text-sky-500 mb-2.5"></i><p className="text-sky-400 text-base font-semibold">{texts.analyzing}</p></div>)}
+                            {questions.map((q, index) => (<div key={index} className={`absolute w-full left-0 px-4 sm:px-5 transition-all duration-700 ease-in-out transform ${index === currentStep ? 'opacity-100 translate-y-0' : 'opacity-0 pointer-events-none -translate-y-10'}`}>{index === currentStep && !isCalculating && (<div className="text-center"><div className="flex items-center justify-center text-sky-500 mb-3"><i className={`${q.icon} text-xl sm:text-2xl mr-2`}></i><p className="text-base sm:text-lg font-semibold text-sky-300">{q.question}</p></div><div className="grid grid-cols-1 gap-2.5 mt-4 max-w-sm mx-auto">{q.options.map((option) => (<button key={option.value} onClick={() => handleAnswer(q.key, option.value)} className="w-full text-center p-2.5 sm:p-3 bg-gradient-to-r from-slate-700 to-gray-700 rounded-lg shadow-md hover:from-slate-600 hover:to-gray-600 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-500 border border-slate-600 hover:border-sky-600"><span className="text-sm sm:text-base font-medium text-gray-200">{toBengaliOptionLabel(option.label)}</span></button>))}</div></div>)}</div>))}
+                            {currentStep >= questions.length && recommendation && !isCalculating && (<div className="animate-fade-in text-center p-4 sm:p-5 bg-gradient-to-br from-slate-700 to-gray-800 rounded-xl shadow-lg border border-sky-700/80"><i className="fas fa-lightbulb text-yellow-400 text-4xl sm:text-5xl mb-2.5"></i><h3 className="text-lg sm:text-xl font-bold text-sky-400 mb-1.5">{texts.recommendationTitle}</h3><p className="text-base sm:text-lg font-semibold text-gray-200 mb-1.5">{texts.recommendationPrefix} <span className="text-sky-400 font-extrabold text-xl sm:text-2xl block">{quantityMapping[recommendation]}</span> {texts.recommendationSuffix}</p><button onClick={() => openForm(recommendation)} className="bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-6 py-2.5 rounded-lg hover:from-sky-600 hover:to-cyan-700 font-semibold text-base sm:text-lg transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"><i className="fas fa-check-circle mr-1.5"></i> {texts.orderThisPackageButton}</button></div>)}
+                        </div>
+                        {(currentStep < questions.length || !recommendation) && !isCalculating && (<div className="text-center mt-6"><button onClick={() => openForm("1")} className="bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-7 py-3 rounded-lg hover:from-sky-600 hover:to-cyan-700 font-semibold text-base sm:text-lg transition duration-300 transform hover:scale-105 shadow-lg"><i className="fas fa-shopping-cart mr-2"></i> {texts.fallbackOrderButton}</button></div>)}
+                    </div>
+                </section>
+            );
+        }
+
+        const FanImageGallery = ({ images, openForm, titleText, altPrefix, buttonText }) => {
+            if (!images || images.length === 0) return null;
+            return (
+                <section className="py-10 sm:py-12 bg-gradient-to-b from-slate-950 via-gray-900 to-neutral-950">
+                    <div className="container mx-auto px-2 sm:px-4">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-sky-400">{titleText}</h2>
+                        <div className="flex overflow-x-auto space-x-4 sm:space-x-5 pb-4 -mx-2 px-2 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-800">
+                            {images.map((imgSrc, index) => (
+                                <div key={index} className="min-w-[220px] sm:min-w-[260px] bg-slate-800 rounded-xl shadow-xl p-3 flex flex-col items-center transform transition-all duration-300 hover:scale-105 border border-slate-700 hover:border-sky-600">
+                                    <img src={imgSrc} alt={`${altPrefix} ${(index + 1).toLocaleString('bn-BD')}`} className="w-full h-52 sm:h-60 object-contain rounded-lg mb-3 bg-slate-700"/>
+                                    <button onClick={() => openForm("1")} className="w-full bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-4 py-2.5 rounded-md hover:from-sky-600 hover:to-cyan-700 font-semibold text-sm sm:text-base transition duration-300 shadow-md hover:shadow-lg"><i className="fas fa-shopping-cart mr-1.5"></i> {buttonText}</button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        function MobileBottomNav({ texts }) {
+            const phoneNumber = "01711949474";
+            const whatsappMessage = encodeURIComponent(texts.whatsappMessage);
+            return (
+                <div className="fixed bottom-0 left-0 right-0 bg-slate-900 shadow-top-lg p-3 border-t border-slate-700 flex justify-around items-center z-40 md:hidden">
+                    <a href={`https://wa.me/88${phoneNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-green-400 hover:text-green-300 transition-colors duration-200 px-3 py-1 rounded-md"><i className="fab fa-whatsapp text-2xl"></i><span className="text-xs mt-0.5 font-medium text-gray-300">{texts.whatsappLabel}</span></a>
+                    <a href={`tel:+88${phoneNumber}`} className="flex flex-col items-center text-sky-400 hover:text-sky-300 transition-colors duration-200 px-3 py-1 rounded-md"><i className="fas fa-phone-alt text-xl"></i><span className="text-xs mt-0.5 font-medium text-gray-300">{texts.callLabel}</span></a>
+                </div>);
+        }
+
+        const WhyChooseUsItem = ({ icon, title, desc }) => (
+            <li className="flex items-start p-4 sm:p-5 bg-slate-800/70 rounded-xl shadow-lg border border-slate-700/80 hover:border-sky-600/90 transition-all duration-300 hover:shadow-sky-900/30 transform hover:-translate-y-1">
+                <div className="flex-shrink-0 mr-3 sm:mr-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-sky-600 to-cyan-700 flex items-center justify-center shadow-md">
+                        <i className={`${icon} text-lg sm:text-xl text-white`}></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 className="text-md sm:text-lg font-semibold text-sky-300 mb-0.5 sm:mb-1">{title}</h3>
+                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">{desc}</p>
+                </div>
+            </li>
+        );
+
+        const FeatureCard = ({ icon, title, desc }) => (
+            <div className="bg-slate-800/70 p-5 sm:p-6 rounded-xl shadow-xl border border-slate-700/80 hover:border-sky-600/90 transition-all duration-300 hover:shadow-sky-900/30 transform hover:-translate-y-1 flex flex-col items-center text-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-sky-600 to-cyan-700 flex items-center justify-center mb-3 sm:mb-4 shadow-md">
+                    <i className={`${icon} text-xl sm:text-2xl text-white`}></i>
+                </div>
+                <h3 className="text-md sm:text-lg font-semibold text-sky-300 mb-1 sm:mb-1.5">{title}</h3>
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed flex-grow">{desc}</p>
+            </div>
+        );
+
+
+        function App() {
+            const [isFormOpen, setIsFormOpen] = React.useState(false);
+            const [aiRecommendedQuantity, setAiRecommendedQuantity] = React.useState("1");
+            const contactPhoneNumber = "01711949474";
+            const texts = TEXTS_BN;
+            const imageSources = IMAGE_SOURCES;
+
+            React.useEffect(() => { document.title = texts.pageTitle; }, [texts.pageTitle]);
+
+            const openOrderForm = (recommendedQty = "1") => {
+                 setAiRecommendedQuantity(recommendedQty.toString());
+                 setIsFormOpen(true);
+            };
+            const closeOrderForm = () => setIsFormOpen(false);
+
+            const currentYear = new Date().getFullYear().toLocaleString('bn-BD');
+
+
+            return (
+                <React.Fragment>
+                    <div className="min-h-screen relative pb-16 md:pb-0 overflow-x-hidden">
+                        {/* Top Banner/Hero Section */}
+                        <section className="container mx-auto py-10 sm:py-12 px-4 text-center text-gray-200">
+                            {/* ব্যানারের উপরের নতুন ইমেজ */}
+                            <div className="mb-4 sm:mb-6 initial-fade-in-up">
+                                <img
+                                    src={imageSources.topBannerImage}
+                                    alt="Promotional Top Banner"
+                                    className="mx-auto rounded-lg shadow-lg max-w-full h-auto sm:max-w-xl md:max-w-2xl border-2 border-slate-700"
+                                />
+                                <p className="mt-3 text-lg sm:text-xl md:text-2xl text-sky-300 font-semibold tracking-wide">
+                                    {texts.topBannerSubtitle}
+                                </p>
+                            </div>
+
+                            {/* প্রধান ব্যানার ইমেজ (দ্বিতীয় ব্যানার) */}
+                            <div className="relative mx-auto mb-6 sm:mb-8 max-w-lg group initial-scale-up initial-delay-200">
+                                <img
+                                    src={imageSources.heroFan}
+                                    alt={texts.heroFanAlt}
+                                    className="rounded-2xl shadow-2xl w-full h-auto object-contain transition-all duration-500 group-hover:scale-105"
+                                />
+                            </div>
+
+                            {/* দ্বিতীয় ব্যানারের নিচে নতুন অর্ডার বাটন */}
+                            <div className="my-6 sm:my-8 initial-fade-in-up initial-delay-500">
+                                 <button
+                                    onClick={() => openOrderForm("1")}
+                                    className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-10 py-3.5 sm:px-12 sm:py-4 rounded-lg hover:from-green-600 hover:to-teal-700 font-bold text-lg sm:text-xl transition duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
+                                >
+                                    <i className="fas fa-cart-plus mr-2.5"></i> {texts.heroOrderButton}
+                                </button>
+                            </div>
+
+
+                            {/* Hero Title এবং অন্যান্য বিবরণ */}
+                            <div className="initial-fade-in-up initial-delay-600">
+                                <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-5 text-gray-100 drop-shadow-sm">{texts.heroTitle}</h2>
+                                <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                                {
+                                    texts.heroDescriptionParts.map((part, index) => {
+                                        if (typeof part === 'string') {
+                                            let tempPart = part;
+                                            tempPart = tempPart.replace("1050", (1050).toLocaleString('bn-BD'));
+                                            tempPart = tempPart.replace("12", (12).toLocaleString('bn-BD'));
+                                            tempPart = tempPart.replace("0৳", `০${TEXTS_BN.currencySymbol}`);
+                                            tempPart = tempPart.replace("100", (100).toLocaleString('bn-BD'));
+                                            return tempPart;
+                                        }
+                                        return part;
+                                    })
+                                }
+                                </p>
+                            </div>
+                        </section>
+
+                        <AnimatedSection threshold={0.2}><FanImageGallery images={IMAGE_SOURCES.mainGallery} openForm={openOrderForm} titleText={texts.galleryTitle} altPrefix={texts.galleryImageAltPrefix} buttonText={texts.galleryOrderButton}/></AnimatedSection>
+                        <AnimatedSection threshold={0.1} delay="delay-200"><AiFanAssistant setRecommendedQuantity={setAiRecommendedQuantity} openForm={openOrderForm} texts={texts.aiAssistant}/></AnimatedSection>
+                        <AnimatedSection threshold={0.1}>
+                            <section className="py-10 sm:py-12 px-4 bg-gradient-to-b from-slate-950/80 to-gray-900/60">
+                              <div className="container mx-auto">
+                                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-gray-100 drop-shadow-sm">{texts.whyChooseUs.title}</h2>
+                                <ul className="list-none mx-auto max-w-3xl space-y-4 sm:space-y-5">{texts.whyChooseUs.points.map((item, index) => {
+                                    let desc = item.desc;
+                                    desc = desc.replace("12", (12).toLocaleString('bn-BD'));
+                                    desc = desc.replace("0৳", `০${TEXTS_BN.currencySymbol}`);
+                                    desc = desc.replace("100", (100).toLocaleString('bn-BD'));
+                                    return (<AnimatedSection key={index} threshold={0.1} delay={`delay-${index * 100 > 500 ? 500 : index * 100}`}><WhyChooseUsItem icon={item.icon} title={item.title} desc={desc} /></AnimatedSection>);
+                                })}</ul>
+                                <div className="text-center mt-10 sm:mt-12"><button onClick={() => openOrderForm("1")} className="bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-10 py-3.5 sm:px-12 sm:py-4 rounded-lg hover:from-sky-600 hover:to-cyan-700 font-semibold text-lg sm:text-xl transition duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"><i className="fas fa-cart-plus mr-2.5"></i> {texts.whyChooseUs.orderButton}</button></div>
+                              </div>
+                            </section>
+                        </AnimatedSection>
+                        <AnimatedSection threshold={0.1}>
+                             <section className="container mx-auto pt-8 pb-10 sm:pt-10 sm:pb-12 px-4 text-gray-200">
+                                 <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-gray-100 drop-shadow-sm">{texts.benefits.title}</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">{texts.benefits.items.map((item, index) => {
+                                    let desc = item.desc.replace("12", (12).toLocaleString('bn-BD'));
+                                   return (<AnimatedSection key={index} threshold={0.1} delay={`delay-${index * 100 > 500 ? 500 : index * 100}`}><FeatureCard icon={item.icon} title={item.title} desc={desc} /></AnimatedSection>);
+                                })}</div>
+                                 <div className="text-center mt-10 sm:mt-12"><button onClick={() => openOrderForm(aiRecommendedQuantity)} className="bg-gradient-to-r from-sky-500 to-cyan-600 text-white px-10 py-3.5 sm:px-12 sm:py-4 rounded-lg hover:from-sky-600 hover:to-cyan-700 font-semibold text-lg sm:text-xl transition duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"><i className="fas fa-bolt mr-2"></i> {texts.benefits.orderButton(aiRecommendedQuantity.toLocaleString('bn-BD') + "টি")}</button></div>
+                            </section>
+                        </AnimatedSection>
+
+                        <footer className="bg-slate-900 text-gray-400 py-8 sm:py-10 px-4 border-t border-slate-800">
+                            <div className="container mx-auto text-center">
+                                <h3 className="text-xl sm:text-2xl font-bold text-sky-400 mb-1">{texts.footer.brandName}</h3>
+                                <p className="text-sm sm:text-base mb-3">{texts.footer.slogan}</p>
+                                <p className="text-xs sm:text-sm mb-4">{texts.footer.copyright(currentYear)}</p>
+                                <div className="text-xs sm:text-sm">
+                                    <span>{texts.footer.developerInfoPrefix} </span>
+                                    <a href="https://www.facebook.com/dev.nayeemdev" target="_blank" rel="noopener noreferrer" className="text-sky-500 hover:text-sky-400 underline transition-colors duration-200">{texts.footer.developerInfoLinkText}</a>
+                                </div>
+                            </div>
+                        </footer>
+                        <MobileBottomNav texts={texts.mobileNav} />
+                        <OrderForm isOpen={isFormOpen} onClose={closeOrderForm} recommendedQuantity={aiRecommendedQuantity} texts={texts.orderForm} />
+                    </div>
+                    <style jsx global>{`
+                        .initial-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+                        .initial-scale-up { animation: scaleUp 0.7s ease-out forwards; }
+                        .initial-delay-200 { animation-delay: 0.2s; }
+                        .initial-delay-300 { animation-delay: 0.3s; }
+                        .initial-delay-400 { animation-delay: 0.4s; }
+                        .initial-delay-500 { animation-delay: 0.5s; }
+                        .initial-delay-600 { animation-delay: 0.6s; }
+
+                        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+                        @keyframes scaleUp { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+                        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+                        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+                        .shadow-top-lg { box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.1), 0 -2px 4px -1px rgba(0,0,0,0.06); }
+                        .scrollbar-thin { scrollbar-width: thin; scrollbar-color: #334155 #1e293b; }
+                        .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+                        .scrollbar-thin::-webkit-scrollbar-track { background: #1e293b; border-radius: 3px;}
+                        .scrollbar-thin::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 3px; border: 1px solid #1e293b;}
+                    `}</style>
+                </React.Fragment>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+</script>
+</body>
+</html>
